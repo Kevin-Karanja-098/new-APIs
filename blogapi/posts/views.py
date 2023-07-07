@@ -9,5 +9,10 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthorOrReadOnly,) 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-
+class UserList(generics.ListCreateApiView):
+    queryset= get_user_model().objects.all()
+    serializer_class=UserSerializer
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset=get_user_model().objects.all()
+    serializer_class=UserSerializer
 # Create your views here.
